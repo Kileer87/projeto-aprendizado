@@ -1,0 +1,406 @@
+/* Estilo geral da página */
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: #f0f8ff; /* Azul céu bem clarinho */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+}
+
+/* Cabeçalho e Título */
+header .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h1 {
+    color: #ff6347; /* Tomate */
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.score-board {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.control-btn {
+    background-color: #ffc107; /* Ambar */
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Botões do Menu */
+nav button,
+.nav-link-button {
+    background-color: #1e90ff; /* Azul Dodger */
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    margin: 5px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav button:hover, .nav-link-button:hover {
+    background-color: #1c86ee;
+    transform: scale(1.05);
+}
+
+/* Telas de Atividade */
+.activity-screen {
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 2px solid #eee;
+}
+
+.activity-screen h2 {
+    color: #3cb371; /* Verde Mar Médio */
+    margin-bottom: 15px;
+}
+
+/* Inputs e Botões das atividades */
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    font-size: 1.2em;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.activity-screen button {
+    background-color: #ffaf47; /* Laranja claro */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 15px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.activity-screen button:hover {
+    background-color: #ffa02f;
+}
+
+/* Caixas de Resultado e Feedback */
+.result-box {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+    min-height: 40px;
+}
+
+.correct {
+    color: #28a745; /* Verde Sucesso */
+}
+
+.incorrect {
+    color: #dc3545; /* Vermelho Perigo */
+}
+
+/* Elementos específicos dos jogos */
+.emoji-display, .welcome-emoji {
+    font-size: 6em;
+    margin: 20px 0;
+    animation: bounce 1s infinite;
+}
+
+/* Classe para esconder elementos */
+.hidden {
+    display: none;
+}
+
+/* Animação simples para os emojis */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Estilo para imagens/emojis de jogos */
+.game-image {
+    font-size: 5em;
+    margin: 20px 0;
+}
+
+/* Estilos para os botões de nível */
+.level-buttons {
+    margin: 25px 0;
+}
+
+.level-buttons button {
+    background-color: #5f9ea0; /* Cadet Blue */
+}
+
+.level-buttons button:hover {
+    background-color: #558e90;
+}
+
+/* Estilo para a caixa que mostra a palavra */
+.word-display-box {
+    background-color: #fffacd; /* Lemon Chiffon */
+    border: 2px solid #f0e68c; /* Khaki */
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 2em;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+/* Estilos para a atividade de Formar Palavras */
+.syllable-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.syllable-container button {
+    background-color: #8a2be2; /* Azul Violeta */
+    font-size: 1.5em;
+    padding: 20px 30px;
+    transform: rotate(0deg); /* Estado inicial para a animação */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.syllable-container button:hover {
+    background-color: #9932cc; /* Orquídea Média */
+    transform: scale(1.1) rotate(5deg);
+}
+
+.answer-preview {
+    border: 2px dashed #ccc;
+    background-color: #fafafa;
+    padding: 10px;
+    letter-spacing: 2px;
+}
+
+/* Estilos para a atividade de Completar com Vogais */
+.vowel-options-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.vowel-options-container button {
+    background-color: #ff69b4; /* Rosa Choque */
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 50%; /* Deixa os botões redondos */
+    width: 60px;
+    height: 60px;
+}
+
+/* Estilos para o Jogo da Memória */
+/* Os estilos do Jogo da Memória foram movidos para dentro de memory_game.html
+   para serem mais específicos e evitar conflitos.
+   Esta seção pode ser removida se os estilos já estiverem no HTML.
+   Se não, o ID correto é #memory-game-board. */
+
+.memory-card {
+    background-color: transparent;
+    height: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.memory-card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden; /* Esconde o lado de trás */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    border-radius: 10px;
+}
+
+.card-face.card-front {
+    background-color: #1e90ff;
+    color: white;
+}
+
+.card-face.card-back {
+    background-color: #fffacd;
+    color: #333;
+    transform: rotateY(180deg);
+}
+
+.memory-card.is-matched .card-back {
+    background-color: #98fb98; /* Verde pálido */
+}
+
+/* Estilos para o Caça-Palavras */
+.word-search-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.word-search-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 35px); /* Tabuleiro 8x8 */
+    grid-template-rows: repeat(8, 35px);
+    gap: 2px;
+    background-color: #ddd;
+    border: 3px solid #ccc;
+    padding: 5px;
+}
+
+.word-search-grid div {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.word-search-grid div.selected {
+    background-color: #ffc107; /* Ambar */
+    color: white;
+}
+
+.word-search-grid div.found {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+.word-search-sidebar {
+    text-align: left;
+}
+
+.word-search-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+.word-search-sidebar li.found {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+/* Estilos para o Modal de Parabéns */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s, visibility 0.4s;
+}
+
+.modal-overlay:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.7);
+    transition: transform 0.4s;
+}
+
+.modal-overlay:not(.hidden) .modal-content {
+    transform: scale(1);
+}
+
+.modal-content .congrats-emoji {
+    font-size: 5em;
+    animation: bounce 1s infinite;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    color: #aaa;
+    cursor: pointer;
+}
+
+/* Estilos para a área de nome */
+.name-input-area {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    border: 2px solid #eee;
+}
+.name-input-area p {
+    margin-top: 0;
+}

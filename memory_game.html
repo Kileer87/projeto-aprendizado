@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Aprender a Ler Brincando</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para o Jogo da Memória, garantindo que funcione */
+        #memory-game-board {
+            display: grid;
+            /* O JS vai gerar 16 cartas (8 pares), então 4 colunas e 4 linhas é ideal */
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 450px;
+            margin: 20px auto;
+            perspective: 1000px;
+        }
+
+        .memory-card {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .memory-card.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .memory-card .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            border: 2px solid #fff;
+            font-size: 1.5em; /* Ajustado para caber palavras */
+            padding: 5px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .card-face.card-front { background-color: #1e90ff; }
+        .card-face.card-back { background-color: #fffacd; transform: rotateY(180deg); }
+        .memory-card.is-matched .card-back { background-color: #98fb98; border-color: #28a745; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="index.html" class="nav-link-button">⬅️ Voltar</a>
+                <div class="header-controls">
+                    <button id="music-toggle-btn" class="control-btn">🎵</button>
+                    <div id="score-board" class="score-board">Pontos: <span id="score-value">0</span></div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="memory-game-activity" class="activity-screen">
+                <h2>🧠 Jogo da Memória 🧠</h2>
+                <p>Encontre os pares (imagem e palavra)!</p>
+                <div id="memory-game-board"></div>
+                <div id="memory-game-feedback" class="result-box"></div>
+                <button id="memory-game-reset-button" class="btn hidden" style="margin-top: 20px;">Recomeçar</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="memory_game.js"></script>
+
+    <!-- O arquivo de som é configurado no topo do arquivo common.js -->
+    <audio id="background-music" src="" loop></audio>
+    <div id="congrats-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span id="modal-close-btn" class="modal-close-btn">&times;</span>
+            <h2>Parabéns!</h2>
+            <div class="congrats-emoji">🏆</div>
+            <p>Você alcançou <span id="congrats-score">10</span> pontos! Continue assim!</p>
+        </div>
+    </div>
+</body>
+</html>

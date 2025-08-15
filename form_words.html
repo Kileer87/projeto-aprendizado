@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formar Palavras - Aprender a Ler Brincando</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="index.html" class="nav-link-button">⬅️ Voltar</a>
+                <div class="header-controls">
+                    <button id="music-toggle-btn" class="control-btn">🎵</button>
+                    <div id="score-board" class="score-board">Pontos: <span id="score-value">0</span></div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="form-words-activity" class="activity-screen">
+                <h2>🧩 Formar Palavras 🧩</h2>
+                <p>Clique nas sílabas na ordem certa para formar a palavra!</p>
+                <div id="syllable-options" class="syllable-container"></div>
+                <div id="word-formation-answer" class="result-box answer-preview"></div>
+                <div id="word-formation-feedback" class="result-box"></div>
+                <button id="word-formation-clear-button">Limpar</button>
+                <button id="word-formation-next-button" class="hidden">Próxima Palavra</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="form_words.js"></script>
+
+    <!-- O arquivo de som é configurado no topo do arquivo common.js -->
+    <audio id="background-music" src="" loop></audio>
+
+    <div id="congrats-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span id="modal-close-btn" class="modal-close-btn">&times;</span>
+            <h2>Parabéns!</h2>
+            <div class="congrats-emoji">🏆</div>
+            <p>Você alcançou <span id="congrats-score">10</span> pontos! Continue assim!</p>
+        </div>
+    </div>
+</body>
+</html>

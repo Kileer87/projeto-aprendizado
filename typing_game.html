@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Digitação - Aprender a Ler Brincando</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="index.html" class="nav-link-button">⬅️ Voltar</a>
+                <div class="header-controls">
+                    <button id="music-toggle-btn" class="control-btn">🎵</button>
+                    <div id="score-board" class="score-board">Pontos: <span id="score-value">0</span></div>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <section id="typing-game-activity" class="activity-screen">
+                <h2>⌨️ Jogo de Digitação ⌨️</h2>
+                
+                <!-- Seleção de Nível -->
+                <div id="typing-game-level-selection">
+                    <h3>Escolha um nível para começar:</h3>
+                    <div id="typing-game-level-buttons" class="level-buttons">
+                        <button data-level="facil">Fácil</button>
+                        <button data-level="medio">Médio</button>
+                        <button data-level="dificil">Difícil</button>
+                    </div>
+                </div>
+
+                <!-- Área do Jogo -->
+                <div id="typing-game-area" class="hidden">
+                    <p>Digite o nome do que você vê na imagem:</p>
+                    <div id="typing-game-image" class="game-image"></div>
+                    <input type="text" id="typing-game-input" placeholder="Digite a palavra aqui..." autocomplete="off">
+                    <button id="typing-game-check-button">Verificar</button>
+                    <div id="typing-game-feedback" class="result-box"></div>
+                    <button id="typing-game-next-button" class="hidden">Próxima</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="common.js"></script>
+    <script src="typing_game.js"></script>
+
+    <!-- Elementos Comuns -->
+    <!-- O arquivo de som é configurado no topo do arquivo common.js -->
+    <audio id="background-music" src="" loop></audio>
+    <div id="congrats-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span id="modal-close-btn" class="modal-close-btn">&times;</span>
+            <h2>Parabéns!</h2>
+            <div class="congrats-emoji">🏆</div>
+            <p>Você alcançou <span id="congrats-score">10</span> pontos! Continue assim!</p>
+        </div>
+    </div>
+</body>
+</html>

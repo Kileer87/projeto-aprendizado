@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprender a Ler Brincando</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1>Aprender a Ler Brincando 🎨</h1>
+                <div class="header-controls">
+                    <button id="music-toggle-btn" class="control-btn">🎵</button>
+                    <div id="score-board" class="score-board">Pontos: <span id="score-value">0</span></div>
+                </div>
+            </div>
+            <div class="welcome-header">
+                <p><strong>Objetivo:</strong> Nossas atividades foram criadas para auxiliar no processo de alfabetização de forma lúdica e interativa. Cada jogo foca em uma habilidade diferente, como reconhecimento de letras, formação de palavras, separação de sílabas e digitação, transformando o aprendizado em uma grande brincadeira!</p>
+            </div>
+            <nav>
+                <a href="syllables.html" class="nav-link-button">Separar Sílabas</a>
+                <a href="qual_letra.html" class="nav-link-button">Qual é a Letra?</a>
+                <a href="form_words.html" class="nav-link-button">Formar Palavras</a>
+                <a href="vowels.html" class="nav-link-button">Completar com Vogais</a>
+                <a href="memory_game.html" class="nav-link-button">Jogo da Memória</a>
+                <a href="word_search.html" class="nav-link-button">Caça-Palavras</a>
+                <a href="typing_game.html" class="nav-link-button">Jogo de Digitação</a>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <!-- Tela de Boas-Vindas -->
+            <section id="welcome-screen" class="activity-screen">
+                <h2 id="welcome-greeting">Bem-vindo(a)!</h2>
+                <p>Escolha uma atividade no menu acima para começar a brincar e aprender.</p>
+                <div class="welcome-emoji">🎉</div>
+
+                <!-- Nova área interativa para o nome -->
+                <div class="name-builder-area">
+                    <button id="open-name-builder-btn" class="btn">Qual é o seu nome?</button>
+
+                    <!-- O construtor de nome (inicialmente escondido) -->
+                    <div id="name-builder-container" class="hidden">
+                        <div id="interactive-name-display" class="result-box" style="margin-bottom: 1rem; min-height: 1.5em; text-transform: uppercase;">...</div>
+                        <div id="interactive-keyboard" class="keyboard-layout"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Estilos para o teclado interativo -->
+    <style>
+        .keyboard-layout { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; max-width: 600px; margin: 1rem auto; }
+        .keyboard-layout .key { padding: 10px 15px; font-size: 1.2em; border-radius: 5px; border: 1px solid #ccc; cursor: pointer; background-color: white; font-family: 'Fredoka', sans-serif; }
+        .keyboard-layout .key:hover { background-color: #f0f0f0; }
+        .keyboard-layout .key-special { flex-grow: 1; background-color: #e0e0e0; }
+        .keyboard-layout .key-save { flex-basis: 100%; margin-top: 5px; background-color: #4CAF50; color: white; font-weight: bold; }
+    </style>
+
+    <!-- O JavaScript é o último a ser carregado -->
+    <script src="common.js"></script>
+    <script src="menu.js"></script>
+
+    <!-- Elemento de áudio para a música de fundo -->
+    <!-- O arquivo de som é configurado no topo do arquivo common.js -->
+    <audio id="background-music" src="" loop></audio>
+
+    <!-- Modal de Parabéns -->
+    <div id="congrats-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span id="modal-close-btn" class="modal-close-btn">&times;</span>
+            <h2>Parabéns!</h2>
+            <div class="congrats-emoji">🏆</div>
+            <p>Você alcançou <span id="congrats-score">10</span> pontos! Continue assim!</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Separar Sílabas - Aprender a Ler Brincando</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="index.html" class="nav-link-button">⬅️ Voltar</a>
+                <div class="header-controls">
+                    <button id="music-toggle-btn" class="control-btn">🎵</button>
+                    <div id="score-board" class="score-board">Pontos: <span id="score-value">0</span></div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="syllables-activity" class="activity-screen">
+                <h2>📝 Separação de Sílabas 📝</h2>
+                <div id="syllable-level-selection">
+                    <p>Escolha um nível para começar!</p>
+                    <div id="syllable-level-buttons" class="level-buttons">
+                        <button data-level="facil">Fácil</button>
+                        <button data-level="medio">Médio</button>
+                        <button data-level="dificil">Difícil</button>
+                    </div>
+                </div>
+                <div id="syllable-game-area" class="hidden">
+                    <p>Veja como se separa a palavra:</p>
+                    <div id="syllable-word-display" class="word-display-box"></div>
+                    <div id="syllable-result" class="result-box"></div>
+                    <button id="syllable-next-word-button">Próxima Palavra</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="syllables.js"></script>
+
+    <!-- O arquivo de som é configurado no topo do arquivo common.js -->
+    <audio id="background-music" src="" loop></audio>
+</body>
+</html>
